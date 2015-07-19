@@ -19,3 +19,6 @@ This plugins allows you to have a configurable list of html elements and html el
 
 **1.0 July 13, 2015**  
 Initial release.
+
+**1.1 July 17, 2015**  
+Fixed UTF-8 encoding issue

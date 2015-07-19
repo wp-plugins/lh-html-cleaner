@@ -2,9 +2,9 @@
 /*
 Plugin Name: LH HTML Cleaner
 Plugin URI: http://lhero.org/plugins/lh-html-cleaner/
-Description: Removes all inline style tags from the content of posts/pages/custom post types on save.
+Description: Removes blacklisted tags and attributes from the content of posts/pages/custom post types on save.
 Author: Peter Shaw
-Version: 1.0
+Version: 1.1
 Author URI: http://shawfactor.com
 Network: true
 */
@@ -141,7 +141,7 @@ public function sanitize_content( $content ) {
 $doc = new DOMDocument();
 
 // load the HTML into the DomDocument object (this would be your source HTML)
-$doc->loadHTML(stripslashes($content));
+$doc->loadHTML("<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"></head><body>".stripslashes($content)."</body></html>");
 
 // Remove blacklisted elements
 $this->removeElementsByTagNames($this->options[ $this->blacklisted_tags_field_name ], $doc);
