@@ -4,7 +4,7 @@ Plugin Name: LH HTML Cleaner
 Plugin URI: http://lhero.org/plugins/lh-html-cleaner/
 Description: Removes blacklisted tags and attributes from the content of posts/pages/custom post types on save.
 Author: Peter Shaw
-Version: 1.1
+Version: 1.2
 Author URI: http://shawfactor.com
 Network: true
 */
@@ -151,6 +151,9 @@ $this->removeAttributeByAttributeNames($this->options[ $this->blacklisted_attrib
 // return cleaned html
 
 $content = preg_replace('~<(?:!DOCTYPE|/?(?:html|head|body))[^>]*>\s*~i', '', $doc->saveHtml());
+
+
+$content = str_replace("<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\">", "", $content);
 
 return $content;
 

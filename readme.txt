@@ -22,3 +22,6 @@ Initial release.
 
 **1.1 July 17, 2015**  
 Fixed UTF-8 encoding issue
+
+**1.2 August 10, 2015**  
+Additional fixed to UTF-8 encoding issue
